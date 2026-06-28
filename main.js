@@ -6,7 +6,7 @@ ipcMain.handle('get-cli-args', () => {
 });
 
 const createWindow = () => {
-  const win = new BrowserWindow({
+  const mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
     frame: false,
@@ -17,7 +17,12 @@ const createWindow = () => {
     },
   });
 
-  win.loadFile('index.html');
+  mainWindow.loadFile('index.html');
+
+  if (process.argv.includes('--with-dev-tools')) {
+    console.log('true');
+    mainWindow.webContents.openDevTools();
+  }
 };
 
 app.whenReady().then(() => {

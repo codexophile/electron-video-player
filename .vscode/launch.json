@@ -23,7 +23,7 @@
       "request": "launch",
       "cwd": "${workspaceFolder}",
       "runtimeExecutable": "C:\\Users\\xq151\\AppData\\Roaming\\npm\\node_modules\\electron\\dist\\electron.exe",
-      "args": [".", "--remote-debugging-port=9222"],
+      "args": [".", "--remote-debugging-port=9222", "--with-dev-tools"],
       "outputCapture": "std",
       "console": "integratedTerminal"
     }
