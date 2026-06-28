@@ -1,0 +1,13 @@
+{
+  "name": "electron-video-player",
+  "version": "1.0.0",
+  "description": "Basic video player based on Electron",
+  "license": "ISC",
+  "author": "codexophile",
+  "type": "commonjs",
+  "main": "main.js",
+  "scripts": {
+    "start": "node \"C:\\Users\\xq151\\AppData\\Roaming\\npm\\node_modules\\electron\\cli.js\" .",
+    "test": "electron ."
+  }
+}
