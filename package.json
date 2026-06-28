@@ -7,7 +7,7 @@
   "type": "commonjs",
   "main": "main.js",
   "scripts": {
-    "start": "node \"C:\\Users\\xq151\\AppData\\Roaming\\npm\\node_modules\\electron\\cli.js\" .",
+    "start": "node \"C:\\Users\\xq151\\AppData\\Roaming\\npm\\node_modules\\electron\\cli.js\" --remote-debugging-port=9222 .",
     "test": "electron ."
   }
 }
