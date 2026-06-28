@@ -1,6 +1,10 @@
 const { app, BrowserWindow, ipcMain } = require('electron/main');
 const path = require('node:path');
 
+ipcMain.handle('get-cli-args', () => {
+  return process.argv;
+});
+
 const createWindow = () => {
   const win = new BrowserWindow({
     width: 800,
