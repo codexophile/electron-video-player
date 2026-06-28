@@ -20,7 +20,6 @@ const createWindow = () => {
   mainWindow.loadFile('index.html');
 
   if (process.argv.includes('--with-dev-tools')) {
-    console.log('true');
     mainWindow.webContents.openDevTools();
   }
 };
