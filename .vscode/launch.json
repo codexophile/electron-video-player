@@ -1,26 +1,31 @@
 {
   "version": "0.2.0",
-  "configurations": [
-    {
-      "name": "Debug Main Process",
-      "type": "node",
-      "request": "launch",
-      "runtimeExecutable": "C:\\Users\\xq151\\AppData\\Roaming\\npm\\node_modules\\electron\\dist\\electron.exe",
-      "program": "${workspaceFolder}\\main.js"
-    },
-    {
-      "name": "Debug Renderer Process",
-      "type": "chrome",
-      "request": "attach",
-      "port": 9222,
-      "webRoot": "${workspaceFolder}"
-    }
-  ],
   "compounds": [
     {
-      "name": "Debug All",
-      "configurations": ["Debug Main Process", "Debug Renderer Process"],
+      "name": "Main + Renderer",
+      "configurations": ["Main", "Renderer"],
       "stopAll": true
+    }
+  ],
+  "configurations": [
+    {
+      "name": "Renderer",
+      "port": 9222,
+      "request": "attach",
+      "type": "chrome",
+      "webRoot": "${workspaceFolder}",
+      "timeout": 10000,
+      "restart": true
+    },
+    {
+      "name": "Main",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "runtimeExecutable": "C:\\Users\\xq151\\AppData\\Roaming\\npm\\node_modules\\electron\\dist\\electron.exe",
+      "args": [".", "--remote-debugging-port=9222"],
+      "outputCapture": "std",
+      "console": "integratedTerminal"
     }
   ]
 }
