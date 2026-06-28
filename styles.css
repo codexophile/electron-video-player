@@ -1,0 +1,18 @@
+body {
+  margin: 0;
+  background: transparent;
+}
+
+.main-container {
+  width: 100vw;
+  height: 100vh;
+  background-color: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  app-region: drag;
+  /* Ensures content doesn't bleed out */
+}
+
+.main-container>* {
+  app-region: no-drag;
+}
