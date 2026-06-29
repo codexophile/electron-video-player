@@ -1,12 +1,14 @@
 const { app, BrowserWindow, ipcMain } = require('electron/main');
 const path = require('node:path');
+const { registerIpcHandlers } = require('./ipcHandlers');
 
 ipcMain.handle('get-cli-args', () => {
   return process.argv;
 });
 
+let mainWindow = null;
 const createWindow = () => {
-  const mainWindow = new BrowserWindow({
+  mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
     frame: false,
@@ -25,6 +27,7 @@ const createWindow = () => {
 };
 
 app.whenReady().then(() => {
+  registerIpcHandlers(() => mainWindow); // pass getter so ipc.js never holds a stale ref
   ipcMain.handle('ping', () => 'pong');
   createWindow();
 
